@@ -9,3 +9,8 @@ if(sprite_index == jumpStartSprite)
 		sprite_index = fallSprite;	
 	}
 }
+
+if(sprite_index == landSprite || sprite_index == runLandSprite && landAnimation)
+{
+	landAnimation = false;
+}

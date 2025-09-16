@@ -54,6 +54,8 @@
     {"id":{"name":"sPlayerLandLeft","path":"sprites/sPlayerLandLeft/sPlayerLandLeft.yy",},},
     {"id":{"name":"sPlayerLeft","path":"sprites/sPlayerLeft/sPlayerLeft.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
+    {"id":{"name":"sPlayerRunLand","path":"sprites/sPlayerRunLand/sPlayerRunLand.yy",},},
+    {"id":{"name":"sPlayerRunLandLeft","path":"sprites/sPlayerRunLandLeft/sPlayerRunLandLeft.yy",},},
     {"id":{"name":"sPlayerRunLeft","path":"sprites/sPlayerRunLeft/sPlayerRunLeft.yy",},},
     {"id":{"name":"sTileset","path":"sprites/sTileset/sTileset.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},

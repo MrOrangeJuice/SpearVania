@@ -5,6 +5,9 @@ jumpVel = -3;
 hSpeed = 1.5;
 canJump = 0;
 landed = false;
+landAnimation = false;
+
+playerState = PlayerState.Idle;
 
 idleSprite = sPlayer;
 runSprite = sPlayerRun;
@@ -12,6 +15,7 @@ jumpStartSprite = sPlayerJumpStart;
 jumpSprite = sPlayerJump;
 fallSprite = sPlayerFall;
 landSprite = sPlayerLand;
+runLandSprite = sPlayerRunLand;
 
 enum PlayerState
 {
