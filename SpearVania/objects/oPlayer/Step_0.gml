@@ -39,15 +39,13 @@ if(array_length(move_and_collide(0,vsp,oWall,abs(ceil(vsp)),0,0)) > 0)
 if(!attacking && global.key_attack)
 {
 	attacking = true;
-	landed = false;
-	landAnimation = false;
 	image_index = 0;
 }
 
 // Animate
 // Check Sides
 
-if(hsp > 0)
+if(hsp > 0 && !attacking)
 {
 	idleSprite = sPlayer;
 	runSprite = sPlayerRun;
@@ -58,7 +56,7 @@ if(hsp > 0)
 	runLandSprite = sPlayerRunLand;
 	attackSprite = sPlayerSlash;
 }
-else if(hsp < 0)
+else if(hsp < 0 && !attacking)
 {
 	idleSprite = sPlayerLeft;
 	runSprite = sPlayerRunLeft;
