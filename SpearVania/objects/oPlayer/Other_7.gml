@@ -14,3 +14,8 @@ if(sprite_index == landSprite || sprite_index == runLandSprite && landAnimation)
 {
 	landAnimation = false;
 }
+
+if(sprite_index == attackSprite)
+{
+	attacking = false;	
+}

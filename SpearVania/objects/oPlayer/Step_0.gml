@@ -35,6 +35,15 @@ if(array_length(move_and_collide(0,vsp,oWall,abs(ceil(vsp)),0,0)) > 0)
 	}
 }
 
+// Attack
+if(!attacking && global.key_attack)
+{
+	attacking = true;
+	landed = false;
+	landAnimation = false;
+	image_index = 0;
+}
+
 // Animate
 // Check Sides
 
@@ -47,6 +56,7 @@ if(hsp > 0)
 	fallSprite = sPlayerFall;
 	landSprite = sPlayerLand;
 	runLandSprite = sPlayerRunLand;
+	attackSprite = sPlayerSlash;
 }
 else if(hsp < 0)
 {
@@ -57,9 +67,14 @@ else if(hsp < 0)
 	fallSprite = sPlayerFallLeft;
 	landSprite = sPlayerLandLeft;
 	runLandSprite = sPlayerRunLandLeft;
+	attackSprite = sPlayerSlashLeft;
 }
 
-if(!landed)
+if(attacking)
+{
+	sprite_index = attackSprite;	
+}
+else if(!landed)
 {
 	if(vsp > 0)
 	{
