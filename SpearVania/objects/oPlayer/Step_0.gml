@@ -34,11 +34,19 @@ if(array_length(move_and_collide(0,vsp,oWall,abs(ceil(vsp)),0,0)) > 0)
 		image_index = 0;
 	}
 }
+else
+{
+	landed = false;
+	landAnimation = false;
+}
+
+canAttack--;
 
 // Attack
-if(!attacking && global.key_attack)
+if(!attacking && global.key_attack && canAttack < 0)
 {
 	attacking = true;
+	canAttack = attackCooldown;
 	image_index = 0;
 }
 
