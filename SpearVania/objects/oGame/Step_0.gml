@@ -9,3 +9,13 @@ if(global.key_pause)
 		global.paused = true;
 	}
 }
+
+global.hitPauseTime--;
+if(global.hitPauseTime > 0)
+{
+	global.hitPause = true;	
+}
+else
+{
+	global.hitPause = false;	
+}

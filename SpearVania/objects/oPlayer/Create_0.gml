@@ -10,6 +10,7 @@ landed = false;
 landAnimation = false;
 attacking = false;
 airborne = false;
+canSpawnHitbox = false;
 
 playerState = PlayerState.Idle;
 

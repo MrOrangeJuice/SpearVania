@@ -52,11 +52,32 @@ if(!global.paused && !global.hitPause)
 		attacking = true;
 		canAttack = attackCooldown;
 		image_index = 0;
+		alarm[0] = room_speed * 0.0625;
+	}
+	
+	// Attack hitbox
+	if(attacking && canSpawnHitbox)
+	{
+		if(sprite_index == sPlayerSlash)
+		{
+			if(!instance_exists(oSlashHitbox))
+			{
+				instance_create_layer(x,y,"Instances",oSlashHitbox);
+			}
+		}
+		else if(sprite_index == sPlayerSlashLeft)
+		{
+			if(!instance_exists(oSlashHitboxLeft))
+			{
+				instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+			}
+		}
 	}
 }
 else
 {
-	image_speed = 0;	
+	image_speed = 0;
+	alarm[0]++;
 }
 
 // Animate
