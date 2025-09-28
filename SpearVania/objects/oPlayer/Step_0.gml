@@ -31,7 +31,7 @@ if(!global.paused && !global.hitPause)
 		if (vsp > 0) canJump = 10;
 		vsp = 0;
 	
-		if(!landed) 
+		if(!landed && !attacking) 
 		{
 			landed = true;
 			landAnimation = true;
