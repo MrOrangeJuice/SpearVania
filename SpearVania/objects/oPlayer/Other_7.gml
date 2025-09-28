@@ -1,13 +1,6 @@
 if(sprite_index == jumpStartSprite)
 {
-	if(vsp < 0)
-	{
-		sprite_index = jumpSprite;	
-	}
-	else
-	{
-		sprite_index = fallSprite;	
-	}
+	jumpStartAnimation = false;
 }
 
 if(sprite_index == landSprite || sprite_index == runLandSprite && landAnimation)

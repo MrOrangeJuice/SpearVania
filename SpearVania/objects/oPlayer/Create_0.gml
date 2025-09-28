@@ -8,6 +8,7 @@ canAttack = 0;
 attackCooldown = 10;
 landed = false;
 landAnimation = false;
+jumpStartAnimation = false;
 attacking = false;
 airborne = false;
 canSpawnHitbox = false;

@@ -10,8 +10,11 @@ if(!global.paused && !global.hitPause)
 	{
 		vsp = jumpVel;
 		canJump = 0;
-		sprite_index = jumpStartSprite;
-		image_index = 0;
+		if(!attacking)
+		{
+			jumpStartAnimation = true;
+			image_index = 0;
+		}
 		landed = false;
 		landAnimation = false;
 	}
@@ -50,6 +53,7 @@ if(!global.paused && !global.hitPause)
 	if(!attacking && global.key_attack && canAttack < 0)
 	{
 		attacking = true;
+		jumpStartAnimation = false;
 		canAttack = attackCooldown;
 		image_index = 0;
 		alarm[0] = room_speed * 0.0625;
@@ -110,9 +114,17 @@ if(attacking)
 {
 	sprite_index = attackSprite;	
 }
+else if(jumpStartAnimation)
+{
+	sprite_index = jumpStartSprite;	
+}
 else if(!landed)
 {
-	if(vsp > 0)
+	if(vsp < 0)
+	{
+		sprite_index = jumpSprite;	
+	}
+	else
 	{
 		sprite_index = fallSprite;	
 	}
@@ -132,7 +144,7 @@ else if(abs(hsp) > 0)
 {
 	sprite_index = runSprite;	
 }
-else
+else if(!(global.key_left || global.key_right))
 {
 	sprite_index = idleSprite;	
 }
