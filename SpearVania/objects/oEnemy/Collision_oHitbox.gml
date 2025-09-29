@@ -1,8 +1,20 @@
 if(canHit)
 {
 	flash = 5;
-	global.hitPauseTime = 8;
+	hp--;
+	shieldHp--;
 	canHit = false;
+	
+	if(shieldHp == 0)
+	{
+		global.hitPauseTime = 16;
+		ScreenShake(4,20);
+	}
+	else
+	{
+		global.hitPauseTime = 8;
+		ScreenShake(2,10);
+	}
 	
 	var centerX = x + (sprite_width / 2);
 	var centerY = y + (sprite_height / 2);
@@ -22,6 +34,14 @@ if(canHit)
 		for(var i = 0; i < 5; i++)
 		{
 			instance_create_layer(centerX - (sprite_width/2),other.y+9,"VFX",oParticleVFXLeft);
+		}
+	}
+	
+	if(shieldHp == 0)
+	{
+		for(var i = 0; i < 20; i++)
+		{
+			instance_create_layer(centerX,centerY,"VFX",oShieldParticle);
 		}
 	}
 }
