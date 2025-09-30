@@ -37,7 +37,7 @@ if(canHit)
 		instance_create_layer(x,y,"VFX",oDeathVFX);
 		instance_destroy();
 	}
-	else if(shieldHp == 0)
+	else if(shieldHp <= 0 && !shieldBroken)
 	{
 		for(var i = 0; i < 20; i++)
 		{
@@ -45,6 +45,7 @@ if(canHit)
 		}
 		global.hitPauseTime = 16;
 		ScreenShake(4,20);
+		shieldBroken = true;
 	}
 	else
 	{

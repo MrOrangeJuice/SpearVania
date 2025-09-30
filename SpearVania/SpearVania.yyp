@@ -86,6 +86,7 @@
     {"id":{"name":"sPlayerSlashHitBox","path":"sprites/sPlayerSlashHitBox/sPlayerSlashHitBox.yy",},},
     {"id":{"name":"sPlayerSlashHitBoxLeft","path":"sprites/sPlayerSlashHitBoxLeft/sPlayerSlashHitBoxLeft.yy",},},
     {"id":{"name":"sPlayerSlashLeft","path":"sprites/sPlayerSlashLeft/sPlayerSlashLeft.yy",},},
+    {"id":{"name":"sPlayerStab","path":"sprites/sPlayerStab/sPlayerStab.yy",},},
     {"id":{"name":"sShieldParticleVFX","path":"sprites/sShieldParticleVFX/sShieldParticleVFX.yy",},},
     {"id":{"name":"sTileset","path":"sprites/sTileset/sTileset.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
