@@ -61,6 +61,7 @@
     {"id":{"name":"shHit","path":"shaders/shHit/shHit.yy",},},
     {"id":{"name":"shShield","path":"shaders/shShield/shShield.yy",},},
     {"id":{"name":"sBasicEnemy","path":"sprites/sBasicEnemy/sBasicEnemy.yy",},},
+    {"id":{"name":"sDeathVFX","path":"sprites/sDeathVFX/sDeathVFX.yy",},},
     {"id":{"name":"sHitVFX","path":"sprites/sHitVFX/sHitVFX.yy",},},
     {"id":{"name":"sHitVFXLeft","path":"sprites/sHitVFXLeft/sHitVFXLeft.yy",},},
     {"id":{"name":"sHitVFXOld","path":"sprites/sHitVFXOld/sHitVFXOld.yy",},},
