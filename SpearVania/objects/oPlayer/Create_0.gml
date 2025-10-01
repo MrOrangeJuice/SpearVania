@@ -10,6 +10,7 @@ landed = false;
 landAnimation = false;
 jumpStartAnimation = false;
 attacking = false;
+stabbing = false;
 airborne = false;
 canSpawnHitbox = false;
 
@@ -23,6 +24,7 @@ fallSprite = sPlayerFall;
 landSprite = sPlayerLand;
 runLandSprite = sPlayerRunLand;
 attackSprite = sPlayerSlash;
+stabSprite = sPlayerStab;
 
 enum PlayerState
 {

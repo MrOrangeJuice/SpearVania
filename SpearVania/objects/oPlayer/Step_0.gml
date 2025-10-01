@@ -50,30 +50,55 @@ if(!global.paused && !global.hitPause)
 	canAttack--;
 
 	// Attack
-	if(!attacking && global.key_attack && canAttack < 0)
+	if(!attacking && (global.key_attack || global.key_stab) && canAttack < 0)
 	{
 		attacking = true;
+		alarm[0] = room_speed * 0.0625;
+		if(global.key_stab) 
+		{
+			stabbing = true;
+			alarm[0] = room_speed * 0.125;
+		}
 		jumpStartAnimation = false;
 		canAttack = attackCooldown;
 		image_index = 0;
-		alarm[0] = room_speed * 0.0625;
 	}
 	
 	// Attack hitbox
 	if(attacking && canSpawnHitbox)
 	{
-		if(sprite_index == sPlayerSlash)
+		if(stabbing)
 		{
-			if(!instance_exists(oSlashHitbox))
+			if(sprite_index == sPlayerStab)
 			{
-				instance_create_layer(x,y,"Instances",oSlashHitbox);
+				if(!instance_exists(oStabHitbox))
+				{
+					instance_create_layer(x,y,"Instances",oStabHitbox);
+				}
+			}
+			else if(sprite_index == sPlayerStabLeft)
+			{
+				if(!instance_exists(oStabHitboxLeft))
+				{
+					instance_create_layer(x,y,"Instances",oStabHitboxLeft);
+				}
 			}
 		}
-		else if(sprite_index == sPlayerSlashLeft)
+		else
 		{
-			if(!instance_exists(oSlashHitboxLeft))
+			if(sprite_index == sPlayerSlash)
 			{
-				instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+				if(!instance_exists(oSlashHitbox))
+				{
+					instance_create_layer(x,y,"Instances",oSlashHitbox);
+				}
+			}
+			else if(sprite_index == sPlayerSlashLeft)
+			{
+				if(!instance_exists(oSlashHitboxLeft))
+				{
+					instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+				}
 			}
 		}
 	}
@@ -97,6 +122,7 @@ if(hsp > 0 && !attacking)
 	landSprite = sPlayerLand;
 	runLandSprite = sPlayerRunLand;
 	attackSprite = sPlayerSlash;
+	stabSprite = sPlayerStab;
 }
 else if(hsp < 0 && !attacking)
 {
@@ -108,9 +134,14 @@ else if(hsp < 0 && !attacking)
 	landSprite = sPlayerLandLeft;
 	runLandSprite = sPlayerRunLandLeft;
 	attackSprite = sPlayerSlashLeft;
+	stabSprite = sPlayerStabLeft;
 }
 
-if(attacking)
+if(stabbing)
+{
+	sprite_index = stabSprite;
+}
+else if(attacking)
 {
 	sprite_index = attackSprite;	
 }
