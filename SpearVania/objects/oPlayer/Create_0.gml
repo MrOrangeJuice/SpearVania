@@ -11,6 +11,7 @@ landAnimation = false;
 jumpStartAnimation = false;
 attacking = false;
 stabbing = false;
+bufferedStab = false;
 airborne = false;
 canSpawnHitbox = false;
 

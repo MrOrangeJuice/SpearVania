@@ -48,7 +48,7 @@ if(!global.paused && !global.hitPause)
 	}
 	
 	// Animation cancel into stab
-	if(global.key_stab)
+	if(global.key_stab || bufferedStab)
 	{
 		attacking = false;	
 		canAttack = -1;
@@ -58,23 +58,25 @@ if(!global.paused && !global.hitPause)
 		if(instance_exists(oSlashHitboxLeft)) instance_destroy(oSlashHitboxLeft);
 		if(instance_exists(oStabHitbox)) instance_destroy(oStabHitbox);
 		if(instance_exists(oStabHitboxLeft)) instance_destroy(oStabHitboxLeft);
+		canSpawnHitbox = false;
 	}
 
 	canAttack--;
 
 	// Attack
-	if(!attacking && (global.key_attack || global.key_stab) && canAttack < 0)
+	if(!attacking && (global.key_attack || (global.key_stab  || bufferedStab)) && canAttack < 0)
 	{
 		attacking = true;
 		alarm[0] = room_speed * 0.0625;
-		if(global.key_stab) 
+		if(global.key_stab || bufferedStab) 
 		{
 			stabbing = true;
-			alarm[0] = room_speed * 0.125;
+			alarm[0] = room_speed * 0.0625;
 		}
 		jumpStartAnimation = false;
 		canAttack = attackCooldown;
 		image_index = 0;
+		bufferedStab = false;
 	}
 	
 	// Attack hitbox
@@ -117,7 +119,11 @@ if(!global.paused && !global.hitPause)
 	}
 }
 else
-{
+{	
+	if(global.key_stab)
+	{
+		bufferedStab = true;	
+	}
 	image_speed = 0;
 	alarm[0]++;
 }
