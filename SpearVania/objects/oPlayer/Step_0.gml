@@ -46,6 +46,19 @@ if(!global.paused && !global.hitPause)
 		landed = false;
 		landAnimation = false;
 	}
+	
+	// Animation cancel into stab
+	if(global.key_stab)
+	{
+		attacking = false;	
+		canAttack = -1;
+		alarm[0] = -1;
+		if(instance_exists(oEnemy)) oEnemy.canHit = true;
+		if(instance_exists(oSlashHitbox)) instance_destroy(oSlashHitbox);
+		if(instance_exists(oSlashHitboxLeft)) instance_destroy(oSlashHitboxLeft);
+		if(instance_exists(oStabHitbox)) instance_destroy(oStabHitbox);
+		if(instance_exists(oStabHitboxLeft)) instance_destroy(oStabHitboxLeft);
+	}
 
 	canAttack--;
 

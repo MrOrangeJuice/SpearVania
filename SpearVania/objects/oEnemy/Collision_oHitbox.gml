@@ -1,16 +1,18 @@
 if(canHit)
 {
-	flash = 5;
 	canHit = false;
 	
 	var centerX = x + (sprite_width / 2);
 	var centerY = y + (sprite_height / 2);
+	
+	var hitBlocked = false;
 	
 	// Create VFX
 	if(other.object_index == oSlashHitbox)
 	{
 		hp--;
 		shieldHp--;
+		flash = 5;
 		instance_create_layer(centerX - (sprite_width/2) - 14,other.y+2,"VFX",oHitVFX);
 		for(var i = 0; i < 5; i++)
 		{
@@ -21,6 +23,7 @@ if(canHit)
 	{
 		hp--;
 		shieldHp--;
+		flash = 5;
 		instance_create_layer(centerX + (sprite_width/2) - 2,other.y+2,"VFX",oHitVFXLeft);
 		for(var i = 0; i < 5; i++)
 		{
@@ -29,25 +32,38 @@ if(canHit)
 	}
 	if(other.object_index == oStabHitbox)
 	{
-		hp -= 5;
-		shieldHp--;
 		instance_create_layer(centerX - (sprite_width/2) - 14,other.y+2,"VFX",oHitStabVFX);
-		for(var i = 0; i < 5; i++)
+		if(shieldBroken)
 		{
-			instance_create_layer(centerX + (sprite_width/2),other.y+9,"VFX",oParticleStabVFXRight);
+			hp -= 5;
+			flash = 5;
+			for(var i = 0; i < 5; i++)
+			{
+				instance_create_layer(centerX + (sprite_width/2),other.y+9,"VFX",oParticleStabVFXRight);
+			}
+		}
+		else
+		{
+			hitBlocked = true;	
 		}
 	}
 	if(other.object_index == oStabHitboxLeft)
 	{
-		hp -= 5;
-		shieldHp--;
 		instance_create_layer(centerX + (sprite_width/2) - 2,other.y+2,"VFX",oHitStabVFXLeft);
-		for(var i = 0; i < 5; i++)
+		if(shieldBroken)
 		{
-			instance_create_layer(centerX - (sprite_width/2),other.y+9,"VFX",oParticleStabVFXLeft);
+			hp -= 5;
+			flash = 5;
+			for(var i = 0; i < 5; i++)
+			{
+				instance_create_layer(centerX - (sprite_width/2),other.y+9,"VFX",oParticleStabVFXLeft);
+			}
+		}
+		else
+		{
+			hitBlocked = true;
 		}
 	}
-	
 	if(hp <= 0)
 	{
 		for(var i = 0; i < 20; i++)
@@ -71,7 +87,10 @@ if(canHit)
 	}
 	else
 	{
-		global.hitPauseTime = 8;
-		ScreenShake(2,10);
+		if(!hitBlocked)
+		{
+			global.hitPauseTime = 8;
+			ScreenShake(2,10);
+		}
 	}
 }
