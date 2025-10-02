@@ -77,6 +77,7 @@ if(canHit)
 		global.hitPauseTime = 20;
 		ScreenShake(5,20);
 		instance_create_layer(x,y,"VFX",oDeathVFX);
+		audio_play_sound(sndExplosion2,5,false);
 		instance_destroy();
 	}
 	else if(shieldHp <= 0 && !shieldBroken)
@@ -87,6 +88,7 @@ if(canHit)
 		}
 		global.hitPauseTime = 16;
 		ScreenShake(4,20);
+		PlayRandomShieldExplosionSound();
 		shieldBroken = true;
 	}
 	else
@@ -95,6 +97,10 @@ if(canHit)
 		{
 			global.hitPauseTime = 8;
 			ScreenShake(2,10);
+		}
+		else
+		{
+			audio_play_sound(sndKlang,5,false);	
 		}
 	}
 }

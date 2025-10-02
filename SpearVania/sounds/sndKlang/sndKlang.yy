@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"sndLeap2Land",
+  "%Name":"sndKlang",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.13605443,
-  "name":"sndLeap2Land",
+  "duration":1.0172789,
+  "name":"sndKlang",
   "parent":{
-    "name":"Leaps",
-    "path":"folders/Sounds/Leaps.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndLeap2Land.wav",
+  "soundFile":"sndKlang.wav",
   "type":0,
-  "volume":0.3,
+  "volume":0.5,
 }
