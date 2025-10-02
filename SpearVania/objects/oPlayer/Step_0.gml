@@ -66,6 +66,7 @@ if(!global.paused && !global.hitPause)
 	// Attack
 	if(!attacking && (global.key_attack || (global.key_stab  || bufferedStab)) && canAttack < 0)
 	{
+		PlayRandomSpearSound();
 		attacking = true;
 		alarm[0] = room_speed * 0.0625;
 		if(global.key_stab || bufferedStab) 

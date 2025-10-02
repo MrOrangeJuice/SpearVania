@@ -13,6 +13,7 @@ if(canHit)
 		hp--;
 		shieldHp--;
 		flash = 5;
+		PlayRandomSpearHitSound();
 		instance_create_layer(centerX - (sprite_width/2) - 14,other.y+2,"VFX",oHitVFX);
 		for(var i = 0; i < 5; i++)
 		{
@@ -24,6 +25,7 @@ if(canHit)
 		hp--;
 		shieldHp--;
 		flash = 5;
+		PlayRandomSpearHitSound();
 		instance_create_layer(centerX + (sprite_width/2) - 2,other.y+2,"VFX",oHitVFXLeft);
 		for(var i = 0; i < 5; i++)
 		{
@@ -37,6 +39,7 @@ if(canHit)
 		{
 			hp -= 5;
 			flash = 5;
+			PlayRandomStabHitSound();
 			for(var i = 0; i < 5; i++)
 			{
 				instance_create_layer(centerX + (sprite_width/2),other.y+9,"VFX",oParticleStabVFXRight);
@@ -54,6 +57,7 @@ if(canHit)
 		{
 			hp -= 5;
 			flash = 5;
+			PlayRandomStabHitSound();
 			for(var i = 0; i < 5; i++)
 			{
 				instance_create_layer(centerX - (sprite_width/2),other.y+9,"VFX",oParticleStabVFXLeft);
