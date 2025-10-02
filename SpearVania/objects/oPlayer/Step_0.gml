@@ -8,6 +8,16 @@ if(!global.paused && !global.hitPause)
 
 	if(canJump-- > 0 && global.key_jump)
 	{
+		jumpSoundRand = irandom_range(1,2);
+		switch(jumpSoundRand)
+		{
+			case 1:
+				audio_play_sound(sndLeap1,5,false);
+				break;
+			case 2:
+				audio_play_sound(sndLeap2,5,false);
+				break;
+		}
 		vsp = jumpVel;
 		canJump = 0;
 		if(!attacking)
@@ -27,15 +37,21 @@ if(!global.paused && !global.hitPause)
 
 	// Horizontal collision
 	move_and_collide(hsp,0,oWall,abs(ceil(hsp)));
-
-	// Vertical collision
-	if(array_length(move_and_collide(0,vsp,oWall,abs(ceil(vsp)),0,0)) > 0)
-	{
-		if (vsp > 0) canJump = 10;
-		vsp = 0;
 	
+	// Landing
+	if(place_meeting(x,y+1,oWall))
+	{
 		if(!landed && !attacking) 
 		{
+			switch(jumpSoundRand)
+			{
+				case 1:
+					audio_play_sound(sndLeap1Land,5,false);
+					break;
+				case 2:
+					audio_play_sound(sndLeap2Land,5,false);
+					break;
+			}
 			landed = true;
 			landAnimation = true;
 			image_index = 0;
@@ -45,6 +61,15 @@ if(!global.paused && !global.hitPause)
 	{
 		landed = false;
 		landAnimation = false;
+	}
+	
+	var vertCollisions = move_and_collide(0,vsp,oWall,abs(ceil(vsp)),0,0);
+
+	// Vertical collision
+	if(array_length(vertCollisions) > 0)
+	{
+		if (vsp > 0) canJump = 10;
+		vsp = 0;
 	}
 	
 	// Animation cancel into stab

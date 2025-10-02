@@ -14,6 +14,7 @@ stabbing = false;
 bufferedStab = false;
 airborne = false;
 canSpawnHitbox = false;
+jumpSoundRand = 1;
 
 playerState = PlayerState.Idle;
 
