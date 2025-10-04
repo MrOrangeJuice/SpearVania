@@ -27,6 +27,7 @@ if(!global.paused && !global.hitPause)
 		}
 		landed = false;
 		landAnimation = false;
+		instance_create_layer(x,y,"BackVFX",oJumpVFX);
 	}
 
 	// Variable jump height
@@ -38,8 +39,15 @@ if(!global.paused && !global.hitPause)
 	// Horizontal collision
 	move_and_collide(hsp,0,oWall,abs(ceil(hsp)));
 	
+	// Spawn dust
+	if(spawnDust-- < 0 && abs(hsp) > 0 && place_meeting(x,y+1,oWall))
+	{
+		instance_create_layer(x+8+random_range(-2,2),y+14+random_range(-2,2),"BackVFX",oDustVFX);
+		spawnDust = irandom_range(3,7);
+	}
+	
 	// Landing
-	if(place_meeting(x,y+1,oWall))
+	if(place_meeting(x,y+1,oWall) && vsp > 0)
 	{
 		if(!landed && !attacking) 
 		{
@@ -55,6 +63,7 @@ if(!global.paused && !global.hitPause)
 			landed = true;
 			landAnimation = true;
 			image_index = 0;
+			instance_create_layer(x,y,"BackVFX",oLandVFX);
 		}
 	}
 	else

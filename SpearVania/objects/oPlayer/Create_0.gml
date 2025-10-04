@@ -15,6 +15,7 @@ bufferedStab = false;
 airborne = false;
 canSpawnHitbox = false;
 jumpSoundRand = 1;
+spawnDust = 0;
 
 playerState = PlayerState.Idle;
 
