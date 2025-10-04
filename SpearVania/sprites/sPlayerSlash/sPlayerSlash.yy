@@ -3,7 +3,7 @@
   "%Name":"sPlayerSlash",
   "bboxMode":2,
   "bbox_bottom":15,
-  "bbox_left":12,
+  "bbox_left":11,
   "bbox_right":20,
   "bbox_top":2,
   "collisionKind":1,
