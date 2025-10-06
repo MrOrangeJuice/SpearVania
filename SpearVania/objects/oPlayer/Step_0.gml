@@ -152,6 +152,19 @@ if(!global.paused && !global.hitPause)
 			}
 		}
 	}
+	
+	// Healing
+	if(global.key_heal && !healing)
+	{
+		healing = true;	
+		healZonePos = irandom_range(32,40);
+		healCursorX = 0;
+	}
+	
+	if((global.key_heal_release || healCursorX >= 48) && healing)
+	{
+		healing = false;	
+	}
 }
 else
 {	

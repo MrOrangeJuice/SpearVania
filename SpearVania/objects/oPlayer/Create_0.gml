@@ -16,6 +16,10 @@ airborne = false;
 canSpawnHitbox = false;
 jumpSoundRand = 1;
 spawnDust = 0;
+healing = false;
+healZonePos = 0;
+healCursorX = 0;
+healCursorSpeed = 1;
 
 playerState = PlayerState.Idle;
 
