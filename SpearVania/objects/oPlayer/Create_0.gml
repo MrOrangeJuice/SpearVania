@@ -20,6 +20,7 @@ healing = false;
 healZonePos = 0;
 healCursorX = 0;
 healCursorSpeed = 1;
+healBellFrame = 0;
 
 playerState = PlayerState.Idle;
 

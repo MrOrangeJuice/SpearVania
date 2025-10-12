@@ -157,8 +157,10 @@ if(!global.paused && !global.hitPause)
 	if(global.key_heal && !healing)
 	{
 		healing = true;	
-		healZonePos = irandom_range(32,40);
+		healZonePos = irandom_range(32,38);
 		healCursorX = 0;
+		healBellFrame = 0;
+		alarm[1] = room_speed * 0.125;
 	}
 	
 	if((global.key_heal_release || healCursorX >= 48) && healing)

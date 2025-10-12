@@ -116,6 +116,8 @@
     {"id":{"name":"sndSword6","path":"sounds/sndSword6/sndSword6.yy",},},
     {"id":{"name":"sBasicEnemy","path":"sprites/sBasicEnemy/sBasicEnemy.yy",},},
     {"id":{"name":"sBell","path":"sprites/sBell/sBell.yy",},},
+    {"id":{"name":"sBellGrow","path":"sprites/sBellGrow/sBellGrow.yy",},},
+    {"id":{"name":"sBellRing","path":"sprites/sBellRing/sBellRing.yy",},},
     {"id":{"name":"sBellRotate","path":"sprites/sBellRotate/sBellRotate.yy",},},
     {"id":{"name":"sDeathVFX","path":"sprites/sDeathVFX/sDeathVFX.yy",},},
     {"id":{"name":"sHealCursor","path":"sprites/sHealCursor/sHealCursor.yy",},},
